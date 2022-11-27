@@ -34,22 +34,16 @@ class Widget extends Component {
 
   render() {
     const { good, neutral, bad } = this.state;
-
+    const options = ['good', 'neutral', 'bad'];
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={'good'}
-            onLiveFeedback={this.hendleClickBtn}
-          />
-          <FeedbackOptions
-            options={'neutral'}
-            onLiveFeedback={this.hendleClickBtn}
-          />
-          <FeedbackOptions
-            options={'bad'}
-            onLiveFeedback={this.hendleClickBtn}
-          />
+          {options.map(option => (
+            <FeedbackOptions
+              options={option}
+              onLiveFeedback={this.hendleClickBtn}
+            />
+          ))}
         </Section>
         <Section title="Statistics">
           <Statistics

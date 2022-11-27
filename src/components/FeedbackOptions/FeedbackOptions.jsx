@@ -4,11 +4,9 @@ import { FeedbackBtn } from './FeedbackOption.styled';
 const FeedbackOptions = props => {
   const { options, onLiveFeedback } = props;
   return (
-    <>
-      <FeedbackBtn name={options} type="button" onClick={onLiveFeedback}>
-        {options}
-      </FeedbackBtn>
-    </>
+    <FeedbackBtn name={options} type="button" onClick={onLiveFeedback}>
+      {options}
+    </FeedbackBtn>
   );
 };
 
