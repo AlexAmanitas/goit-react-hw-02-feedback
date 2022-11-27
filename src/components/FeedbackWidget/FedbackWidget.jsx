@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Statistics from 'components/Statistics';
 import FeedbackOptions from 'components/FeedbackOptions';
 import Section from 'components/Section';
-import Notification from 'components/Notification';
 
 class Widget extends Component {
   constructor() {
@@ -14,12 +13,12 @@ class Widget extends Component {
     };
   }
 
-  hendleClickBtn(evt) {
+  hendleClickBtn = evt => {
     const { name } = evt.currentTarget;
     this.setState(prevState => {
       return { [name]: prevState[name] + 1 };
     });
-  }
+  };
 
   countTotalFeedback() {
     const { good, neutral, bad } = this.state;
@@ -28,9 +27,9 @@ class Widget extends Component {
 
   countPositiveFeedbackPercentage() {
     if (this.countTotalFeedback() !== 0)
-      return `${Math.round(
+      return ` ${Math.round(
         (this.state.good / this.countTotalFeedback()) * 100
-      )}%`;
+      )} %`;
   }
 
   render() {
@@ -41,15 +40,15 @@ class Widget extends Component {
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={'good'}
-            onLiveFeedback={this.hendleClickBtn.bind(this)}
+            onLiveFeedback={this.hendleClickBtn}
           />
           <FeedbackOptions
             options={'neutral'}
-            onLiveFeedback={this.hendleClickBtn.bind(this)}
+            onLiveFeedback={this.hendleClickBtn}
           />
           <FeedbackOptions
             options={'bad'}
-            onLiveFeedback={this.hendleClickBtn.bind(this)}
+            onLiveFeedback={this.hendleClickBtn}
           />
         </Section>
         <Section title="Statistics">
