@@ -4,14 +4,11 @@ import FeedbackOptions from 'components/FeedbackOptions';
 import Section from 'components/Section';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      good: 0,
-      neutral: 0,
-      bad: 0,
-    };
-  }
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
   hendleClickBtn = evt => {
     const { name } = evt.currentTarget;
@@ -38,13 +35,10 @@ class App extends Component {
     return (
       <div>
         <Section title="Please leave feedback">
-          {options.map(option => (
-            <FeedbackOptions
-              key={option}
-              options={option}
-              onLiveFeedback={this.hendleClickBtn}
-            />
-          ))}
+          <FeedbackOptions
+            options={options}
+            onLiveFeedback={this.hendleClickBtn}
+          />
         </Section>
         <Section title="Statistics">
           <Statistics

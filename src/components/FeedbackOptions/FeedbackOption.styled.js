@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+export const FeedbackButtons = styled.div``;
+
 export const FeedbackBtn = styled.button`
   padding: 5px 10px;
   font-size: 15px;

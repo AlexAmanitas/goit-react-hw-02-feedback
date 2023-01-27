@@ -1,20 +1,26 @@
 import PropTypes from 'prop-types';
-import { FeedbackBtn } from './FeedbackOption.styled';
+import { FeedbackBtn, FeedbackButtons } from './FeedbackOption.styled';
 
-const FeedbackOptions = props => {
-  const { options, onLiveFeedback } = props;
+const FeedbackOptions = ({ options, onLiveFeedback }) => {
   return (
-    <FeedbackBtn name={options} type="button" onClick={onLiveFeedback}>
-      {options}
-    </FeedbackBtn>
+    <FeedbackButtons>
+      {options.map(option => (
+        <FeedbackBtn
+          key={option}
+          name={option}
+          type="button"
+          onClick={onLiveFeedback}
+        >
+          {option}
+        </FeedbackBtn>
+      ))}
+    </FeedbackButtons>
   );
 };
 
 FeedbackOptions.propTypes = {
-  props: PropTypes.shape({
-    options: PropTypes.string.isRequired,
-    onLiveFeedback: PropTypes.func.isRequired,
-  }),
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  onLiveFeedback: PropTypes.func.isRequired,
 };
 
 export default FeedbackOptions;
