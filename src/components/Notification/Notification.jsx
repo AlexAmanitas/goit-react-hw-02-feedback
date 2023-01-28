@@ -6,7 +6,5 @@ const Notification = ({ message }) => {
 export default Notification;
 
 Notification.propTypes = {
-  props: PropTypes.shape({
-    message: PropTypes.string.isRequired,
-  }),
+  message: PropTypes.string.isRequired,
 };
